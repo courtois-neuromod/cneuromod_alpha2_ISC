@@ -73,9 +73,13 @@ def _nifti_mask_movie(scan, mask, confounds, smoothing_fwhm=None):
         Any confounds to correct for in the cleaned data set.
     """
     # niftimask and clean data
-    masker = input_data.NiftiMasker(mask_img=mask, standardize=True,
-                                    detrend=True, high_pass=0.01, t_r=1.49,
+    masker = input_data.NiftiMasker(mask_img=mask, t_r=1.49,
+                                    standardize=True, detrend=True,
+                                    high_pass=0.01, low_pass=0.1,
                                     smoothing_fwhm=smoothing_fwhm)
+    compcor = image.high_variance_confounds(scan, mask_img=mask,
+                                            n_confounds=10, percentile=5.0)
+    confounds = np.hstack((confounds, compcor))
     cleaned = masker.fit_transform(scan, confounds=confounds)
     return masker.inverse_transform(cleaned)
 
@@ -106,7 +110,7 @@ def create_data_dictionary():
         [403, 405, 405, 405, 405, 405, 405, 405, 405, 380],
         [406, 406, 406, 406, 406, 406, 406, 406, 406, 406,
          406, 406, 406, 406, 406, 406, 498],
-        [410, 410, 410, 409, 408, 410, 410, 409, 410, 409, 409, 373],
+        [402, 409, 410, 409, 408, 408, 408, 409, 409, 409, 409, 373],
         [406, 406, 406, 406, 384]
     ]
 
@@ -123,7 +127,7 @@ def create_data_dictionary():
         str(t) : {'segment_lengths': seg_len,
         'regr_str': regr, 'tmpl_str': tmpl}
          for t, seg_len, regr, tmpl in zip(
-                            tasks, segment_lengths, regr_pairs, tmpl_pairs)}
+             tasks, segment_lengths, regr_pairs, tmpl_pairs)}
 
     return tasks, data_dictionary
 
