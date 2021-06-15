@@ -1,28 +1,24 @@
 # cneuromod_alpha2_ISC
 
-Intersubject correlation of movie10 data from the cneuromod2020-alpha2 release.
+Inter-subject correlation (ISC) of movie10 data from the cneuromod2020-alpha2 release.
+
+For an introduction to inter-subject correlation, please see
+[Nastase et al. (2019), _SCAN_](https://academic.oup.com/scan/article/14/6/667/5489905).
+
+This project duplicates some code from the [BrainIAK](https://brainiak.org/) project.
+We encourage users interested in applying inter-subject correlation more broadly to check out
+[their tutorials](https://brainiak.org/tutorials/).
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 
 ## Project Organization
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data               <- Where the dataset will be installed
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
-    │
     ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
@@ -41,4 +37,4 @@ Intersubject correlation of movie10 data from the cneuromod2020-alpha2 release.
 
 --------
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+<p><small>Project adapted fromthe <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
